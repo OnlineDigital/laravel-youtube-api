@@ -628,7 +628,11 @@ class Youtube
             return call_user_func_array($this->http_function, [
                 $url,
                 $params,
-                $this
+                (object) [
+                    "youtube_key" => $this->youtube_key,
+                    "referer" => $this->referer,
+                    "sslPath" => $this->sslPath,
+                ],
             ]);
         }
 

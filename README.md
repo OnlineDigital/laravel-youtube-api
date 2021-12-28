@@ -1,6 +1,5 @@
-php-youtube-api
+laravel-youtube-api
 ===============
-[![Build Status](https://secure.travis-ci.org/madcoda/php-youtube-api.png)](https://travis-ci.org/madcoda/php-youtube-api)
 
 A basic PHP wrapper for the Youtube Data API v3 ( Non-OAuth ). Designed to let devs easily 
 fetch public data (Video, Channel, Playlists info) from Youtube. No 3rd party dependancy (except PHPUnit).
@@ -10,6 +9,10 @@ to use this library, instead of learning my set of API again (Keep it simple).
 Well.. actually some parameters are missing in this library, because I don't need them at this point. If you desire a particular feature, please [file an issue here](https://github.com/madcoda/php-youtube-api/issues) :)
 
 Currently I will not consider adding OAuth endpoints. (those required "authorized request" will not be supported)
+
+## Fork
+This fork allows you to change the http function and comes with a provider for Laravel 7+ to use laravel's Http facade instead of curl for every request.
+Add `\Madcoda\Youtube\YoutubeServiceProviderLaravel7::class,` in `config/app.php`, inside `providers` array.
 
 ## Requirements
 * PHP >=5.3
