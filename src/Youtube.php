@@ -51,6 +51,11 @@ class Youtube
      */
     protected $sslPath = null;
 
+    /**
+     * @var callable
+     */
+    protected $http_function = null;
+
 
     /**
      * @var array
@@ -619,6 +624,14 @@ class Youtube
      */
     public function api_get($url, $params)
     {
+        if ($this->http_function !== null) {
+            return call_user_func_array($this->http_function, [
+                $url,
+                $params,
+                $this
+            ]);
+        }
+
         //set the youtube key
         $params['key'] = $this->youtube_key;
 
@@ -640,6 +653,11 @@ class Youtube
             throw new \Exception('Curl Error : ' . curl_error($tuCurl), curl_errno($tuCurl));
         }
         return $tuData;
+    }
+
+    public function setHttpFunction($callable)
+    {
+        $this->http_function = $callable;
     }
 
 
