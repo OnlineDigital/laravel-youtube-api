@@ -1,5 +1,5 @@
 {
-    "name": "madcoda/php-youtube-api",
+    "name": "onlinedigital/laravel-youtube-api",
     "type": "library",
     "description": "PHP wrapper for the Youtube Data API v3",
     "keywords": ["youtube", "api", "video", "madcoda"],
